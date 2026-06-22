@@ -1,0 +1,24 @@
+{
+  "name": "community-connect",
+  "version": "1.0.0",
+  "description": "A web app designed to bring local communities closer by making it easier to share updates, track local events, and see engagement stats in a simple dashboard. Building this to practice full-stack development and handle structured data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuvarshini276-eng/community-connect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/anuvarshini276-eng/community-connect/issues"
+  },
+  "homepage": "https://github.com/anuvarshini276-eng/community-connect#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotional Tracking Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mood & Emotional Tracker</h1>
+        <p>Data Collection Phase: Capturing quantitative and qualitative metrics.</p>
+        <form id="moodForm">
+            <div class="form-group">
+                <label for="moodScale">How are you feeling today? (Scale 1-10): <span id="moodValue" style="color: #3182ce; font-weight: bold; font-size: 18px;">5</span></label>
+                <input type="range" id="moodScale" min="1" max="10" value="5">
+            </div>
+            <div class="form-group">
+                <label for="journalText">Qualitative Journal Entry</label>
+                <textarea id="journalText" placeholder="Type your thoughts here..."></textarea>
+            </div>
+            <button type="submit">Submit Entry</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
