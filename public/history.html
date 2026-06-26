@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood History Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 600px; margin: 50px auto; padding: 20px; font-family: sans-serif;">
+        <h2>📊 Mood & Emotional History Logs</h2>
+        <p>Below are your saved entries tracked directly from the cloud backend database:</p>
+        
+        <hr>
+        
+        <div id="logsContainer">Loading history logs...</div>
+
+        <br>
+        <a href="/" style="display: inline-block; padding: 10px 15px; background: #007bff; color: white; text-decoration: none; border-radius: 5px;">← Track Another Day</a>
+    </div>
+
+    <script>
+        // Automatically fetch the logs array when this page opens
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('logsContainer');
+            try {
+                const response = await fetch('/api/mood');
+                const logs = await response.json();
+
+                if (logs.length === 0) {
+                    container.innerHTML = "<p>No logs found yet. Go back and add one!</p>";
+                    return;
+                }
+
+                // Loop through entries and generate clean HTML elements
+                container.innerHTML = logs.map(entry => `
+                    <div style="background: #f8f9fa; border-left: 5px solid #007bff; padding: 15px; margin: 15px 0; border-radius: 4px;">
+                        <strong>Mood Scale Score:</strong> ${entry.moodScale} / 10 <br>
+                        <strong>Journal Note:</strong> ${entry.journalText || "<em>None provided</em>"} <br>
+                        <small style="color: gray;">Logged on: ${new Date(entry.timestamp).toLocaleString()}</small>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                container.innerHTML = "<p style='color: red;'>Error fetching history data logs.</p>";
+            }
+        });
+    </script>
+</body>
+</html>

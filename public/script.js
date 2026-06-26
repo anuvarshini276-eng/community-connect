@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.status === 201) {
                 alert(`🎉 Success! Data Point Captured.\nMood Score: ${backendResult.entry.moodScale}`);
-                // Reset fields
-                document.getElementById('journalText').value = '';
-                moodScale.value = 5;
-                moodValue.textContent = 5;
+                
+                // === THE CRUCIAL UPDATE ===
+                window.location.href = "history.html"; 
+                
             } else {
                 alert('Something went wrong saving your entry.');
             }
